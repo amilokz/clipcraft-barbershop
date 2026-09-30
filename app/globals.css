@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-oswald);
+  --font-sans: var(--font-inter);
+}
+
+@theme {
+  --color-gold-200: #f7e8b0;
+  --color-gold-300: #f0d98c;
+  --color-gold-400: #e3c566;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #a9862a;
+  --color-gold-700: #7a5f1e;
+
+  --color-coal-700: #1c1c1f;
+  --color-coal-800: #141416;
+  --color-coal-900: #0c0c0d;
+  --color-coal-950: #08080a;
+
+  --animate-rise: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-marquee: marquee 36s linear infinite;
+  --animate-kenburns: kenburns 26s ease-in-out infinite alternate;
+  --animate-glow-pulse: glow-pulse 5s ease-in-out infinite;
+  --animate-float-slow: float-slow 8s ease-in-out infinite;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes kenburns {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.14);
+    }
+  }
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #08080a;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #d4af37;
+  color: #08080a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0c0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2e;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Gold gradient headline text */
+.text-gold-grad {
+  background: linear-gradient(100deg, #f7e8b0 5%, #d4af37 55%, #a9862a 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Thin barber-pole accent strip */
+.barber-pole {
+  background: repeating-linear-gradient(
+    -48deg,
+    #d4af37 0 16px,
+    #101012 16px 32px,
+    #e8e4da 32px 40px,
+    #101012 40px 56px
+  );
+}
+
+/* Gold card edge on hover */
+.card-edge {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+.card-edge:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow:
+    0 0 36px rgba(212, 175, 55, 0.12),
+    0 24px 48px -24px rgba(0, 0, 0, 0.85);
+  transform: translateY(-4px);
+}
+
+/* Dotted price leaders */
+.price-leader {
+  background-image: radial-gradient(circle, rgba(212, 175, 55, 0.45) 1px, transparent 1.5px);
+  background-size: 10px 2px;
+  background-repeat: repeat-x;
+  background-position: 0 center;
+  height: 2px;
+}
+
+/* Respect reduced motion everywhere */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
