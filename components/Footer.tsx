@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-zinc-600 sm:flex-row">
-          <span>© 2026 ClipCraft Barbershop. All rights reserved.</span>
+          <span>© 2026 ClipCraft Barbershop. All rights reserved. · Designed &amp; built by <a href="https://akclnt.com" className="hover:text-gold-300">AKCLNT</a></span>
           <span className="uppercase tracking-widest">
             Demo website · Fictional business
           </span>
